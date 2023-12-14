@@ -1,0 +1,30 @@
+@import '/src/style/varColor.scss';
+
+.Icon {
+    cursor: pointer;
+    display: flex;
+    border: 1px solid rgba(179, 171, 171, 0.281);
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 150px;
+    font-size: 88px;
+    font-weight: bold;
+
+    .icon-orange {
+        color: $yellow-1;
+      }
+    .icon-red{
+        color: red;
+    }  
+  }
+  
+  
+  .Grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    justify-items: center;
+    align-items: center;
+  }

@@ -11,5 +11,16 @@ body{
     justify-content: center;
     border-radius: 20px;
     color: white;
+    margin-bottom: 50px;
 }
+
+.container-app {
+    width: 40%;
+    height: 600px;
+    display: grid;
+    margin: 0 auto;
+    border-radius: 50px;
+    background: $bg-color-2;
+    //  /* adjust based on desired layout */
+  }
 
