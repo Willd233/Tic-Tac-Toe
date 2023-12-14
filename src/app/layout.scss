@@ -15,12 +15,11 @@ body{
 }
 
 .container-app {
-    width: 40%;
+    width: 600px;
     height: 600px;
     display: grid;
     margin: 0 auto;
     border-radius: 50px;
     background: $bg-color-2;
-    //  /* adjust based on desired layout */
   }
 
