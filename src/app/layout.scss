@@ -2,6 +2,12 @@
 body{
     background-color: $bg-color;
 }
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+}
 
 .primary-title{
     margin: 0 auto;
