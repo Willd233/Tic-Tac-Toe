@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="">
       <div className='primary-title'>
-        <h1> 3 in a row!</h1>
+        <h1>Tic Tac Toe!</h1>
       </div>
       <div className="container">
         <TurnX />
@@ -20,8 +20,6 @@ export default function Home() {
         </div>
 
       </div>
-
-      <StartButton />
     </main>
   )
 }
