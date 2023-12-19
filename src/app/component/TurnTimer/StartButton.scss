@@ -1,4 +1,4 @@
-button{
+button {
     margin: 50px;
     width: 240px;
     height: 70px;
@@ -8,4 +8,7 @@ button{
     font-size: 30px;
     color: white;
     box-shadow: 1px 5px 0px #771414f6;
+    grid-column: 2/3;
+    grid-row: 2/3;
+
 }

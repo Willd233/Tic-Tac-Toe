@@ -7,6 +7,33 @@
   align-items: center;
 }
 
+.title {
+  display: grid;
+  justify-items: center;
+
+  h1 {
+    font-size: 20px;
+  }
+}
+
+section {
+  width: 600px;
+  height: 600px;
+  display: grid;
+  margin: 0 auto;
+  border-radius: 50px;
+  background: $bg-color-2;
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+
+}
+
 .Icon {
   cursor: pointer;
   display: flex;
@@ -26,6 +53,7 @@
     &[data-cell="X"] {
       border-color: darken(#c40606, 10%);
     }
+
     &[data-cell="O"] {
       border-color: $yellow-2;
     }
@@ -40,4 +68,24 @@
   }
 }
 
-  
+
+
+.title {
+  display: grid;
+  justify-items: center;
+
+  h1 {
+    font-size: 70px;
+  }
+}
+
+.timer-left {
+  width: 180px;
+  height: 250px;
+  background-color: $bg-color-2;
+  font-size: 130px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+}

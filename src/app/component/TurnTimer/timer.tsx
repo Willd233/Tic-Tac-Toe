@@ -1,29 +1,56 @@
 "use client"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 
+const getTurnColor = (turn: string) => {
+    return turn === "X" ? "#c40606" : "$yellow-2";
+};
 
+export default function Timer({
+    playing,
+    turn,
+    setTurn,
+    tag,
+}: {
+    playing: boolean,
+    turn: "X" | "O"
+    setTurn: (turn: "X" | "O") => void;
+    tag: "X" | "O",
+}) {
 
-const Timer = () => {
     const [timer, setTimer] = useState(5);
 
-    const countDown = () => {
-    setTimer((timer)=> Math.max(timer -1,0))
-    };
-    
-    const handleStartClick=()=>{
-        setTimer(5);
-        const interval = setInterval(countDown, 1000);
-        return ()=> clearInterval(interval);
-    }
+
+    useEffect(() => {
+        setTimer(5)
+    }, [turn])
+
+    useEffect(() => {
+        if (!playing) return;
+
+        if (tag === turn) {
+            if (timer < 5) setTimer(5);
+            return;
+        }
+
+        const interval = setInterval(() => {
+            if (timer <= 0) {
+                setTimer(5);
+                setTurn(turn === "X" ? "O" : "X")
+                return;
+            }
+            setTimer(timer - 1);
+        }, 1000)
+        return () => clearInterval(interval)
+
+    }, [playing, timer, setTurn, turn, tag]);
+
+
 
     return (
-        <div>    <span>{timer}</span>
-    <button onClick={handleStartClick}>start</button>
-    </div>
-
+        <div>
+            <span>{timer}</span>
+        </div>
     )
-
 }
 
-export {Timer}
 
