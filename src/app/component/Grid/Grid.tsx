@@ -10,7 +10,6 @@ export const Grid = () => {
   const [playing, setPlaying] = useState<boolean>(false);
   const [textButton, setTextButton] = useState("PLAY");
   const [winer, setWiner] = useState("Tic Tac Toe!")
-  const [winnerLine, setWinnerLine] = useState<string>("");
 
 
   const handleClick = (i: number) => {
@@ -46,9 +45,6 @@ export const Grid = () => {
         setTextButton("PLAY");
         setCells(Array(9).fill(""));
         setTurn("X");
-        setWinnerLine(cells[condition[0]]);
-        setWinnerLine("");
-
         break;
       }
     }
