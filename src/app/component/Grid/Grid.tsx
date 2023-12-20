@@ -10,9 +10,12 @@ export const Grid = () => {
   const [playing, setPlaying] = useState<boolean>(false);
   const [textButton, setTextButton] = useState("PLAY");
   const [winer, setWiner] = useState("Tic Tac Toe!")
+  const [winnerLine, setWinnerLine] = useState<string>("");
+
 
   const handleClick = (i: number) => {
     if (!playing || cells[i]) return;
+    
 
     const newCells = [...cells];
     newCells[i] = turn;
@@ -20,13 +23,50 @@ export const Grid = () => {
     setCells(newCells)
   };
 
+  useEffect(() => {
+    const winningConditions = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+  
+    for (const condition of winningConditions) {
+      if (
+        cells[condition[0]] &&
+        cells[condition[0]] === cells[condition[1]] &&
+        cells[condition[1]] === cells[condition[2]]
+      ) {
+        setWiner(`${cells[condition[0]]} Wins!`);
+        setPlaying(false);
+        setTextButton("PLAY");
+        setCells(Array(9).fill(""));
+        setTurn("X");
+        setWinnerLine(cells[condition[0]]);
+        setWinnerLine("");
+
+        break;
+      }
+    }
+    
+    if (cells.every((cell) => cell)) {
+      setWiner("It's a Tie!");
+      setPlaying(false);
+      setCells(Array(9).fill(""));
+      setTurn("X");
+      setTextButton("PLAY");
+    }
+  }, [cells]);
+  
+
   const startTimer = () => {
     setPlaying(true)
     setTextButton("IN PROGRESS")
   }
-
-  
-
 
   return (
     <main>
