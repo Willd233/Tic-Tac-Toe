@@ -11,4 +11,23 @@ button {
     grid-column: 2/3;
     grid-row: 2/3;
 
+    transform: scaleY(1);
+    transition: transform 0.1s ease-in-out;
+
+    &:active {
+        transform: scaleY(0.9);
+      }
+
 }
+.in-progress {
+    margin: 50px;
+    width: 300px;
+    height: 70px;
+    background: $bg-color-2;
+    border-radius: 50px;
+    border: 1px solid $bg-color-2;
+    font-size: 30px;
+      box-shadow: 1px 5px 0px $dark-blue;
+    cursor: pointer;
+    opacity: 0.5;
+  }

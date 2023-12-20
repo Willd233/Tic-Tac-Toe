@@ -1,10 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
 
-const getTurnColor = (turn: string) => {
-    return turn === "X" ? "#c40606" : "$yellow-2";
-};
-
 export default function Timer({
     playing,
     turn,
@@ -38,8 +34,10 @@ export default function Timer({
                 setTurn(turn === "X" ? "O" : "X")
                 return;
             }
+
             setTimer(timer - 1);
         }, 1000)
+        
         return () => clearInterval(interval)
 
     }, [playing, timer, setTurn, turn, tag]);

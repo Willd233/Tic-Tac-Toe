@@ -47,6 +47,7 @@ section {
   font-size: 88px;
   font-weight: bold;
 
+  
 
   &:hover {
 
@@ -64,11 +65,17 @@ section {
   }
 
   .icon-red {
-    color: #940a0a;
+    color: $red-1;
   }
 }
 
+.hover-X:hover {
+  border-color: $red-2;
+}
 
+.hover-O:hover {
+  border-color: $yellow-2;
+}
 
 .title {
   display: grid;
@@ -88,4 +95,30 @@ section {
   justify-content: center;
   align-items: center;
   border-radius: 30px;
+  
 }
+
+.turn-active {
+  color:$red-1;
+
+  .title-internal{
+    color: white;
+  }
+  .O{
+    background-color: #940a0a;
+  }
+}
+
+.O.turn-active {
+  color: #ffa500; 
+  .X{
+    background-color: $yellow-2;
+  }
+}
+#O{
+  color: white;
+}
+
+
+
+
