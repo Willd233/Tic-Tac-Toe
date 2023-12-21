@@ -14,7 +14,7 @@ export const Grid = () => {
 
   const handleClick = (i: number) => {
     if (!playing || cells[i]) return;
-    
+
 
     const newCells = [...cells];
     newCells[i] = turn;
@@ -33,7 +33,7 @@ export const Grid = () => {
       [0, 4, 8],
       [2, 4, 6],
     ];
-  
+
     for (const condition of winningConditions) {
       if (
         cells[condition[0]] &&
@@ -43,12 +43,11 @@ export const Grid = () => {
         setWiner(`${cells[condition[0]]} Wins!`);
         setPlaying(false);
         setTextButton("PLAY");
-        setCells(Array(9).fill(""));
         setTurn("X");
         break;
       }
     }
-    
+
     if (cells.every((cell) => cell)) {
       setWiner("It's a Tie!");
       setPlaying(false);
@@ -57,11 +56,13 @@ export const Grid = () => {
       setTextButton("PLAY");
     }
   }, [cells]);
-  
+
 
   const startTimer = () => {
     setPlaying(true)
     setTextButton("IN PROGRESS")
+    setCells(Array(9).fill(""));
+
   }
 
   return (
@@ -87,7 +88,7 @@ export const Grid = () => {
               className={`Icon ${cell ? "filled" : ""} ${turn === "X" ? "hover-X" : "hover-O"}`}
               data-cell={cell}
               onClick={() => handleClick(i)}
-              
+
             >
               {cell === "X" && <FontAwesomeIcon icon={faXmark} className="icon-red" />}
               {cell === "O" && <FontAwesomeIcon icon={faO} className="icon-orange" />}
@@ -106,7 +107,7 @@ export const Grid = () => {
         </div>
         <button
           onClick={startTimer}
-          
+
           className={`${playing ? "in-progress" : "play"}`}
         >
           {textButton}
