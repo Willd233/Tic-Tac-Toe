@@ -11,8 +11,7 @@ export const Grid = () => {
   const [textButton, setTextButton] = useState("PLAY");
   const [winer, setWiner] = useState("Tic Tac Toe!");
   const [winnerColor, setWinnerColor] = useState("");
-  const [winningCells, setWinningCells] = useState<number[]>([]); // Add a state to track winning cells
-
+  const [winningCells, setWinningCells] = useState<number[]>([]); 
 
 
   const handleClick = (i: number) => {
@@ -23,7 +22,7 @@ export const Grid = () => {
     newCells[i] = turn;
     setTurn(turn === "X" ? "O" : "X")
     setCells(newCells);
-    setWinningCells([]); // Reset winning cells on every move
+    setWinningCells([]);
 
   };
 
@@ -46,7 +45,7 @@ export const Grid = () => {
         cells[condition[1]] === cells[condition[2]]
       ) {
         setWiner(`${cells[condition[0]]} Wins!`);
-        setWinnerColor(cells[condition[0]] === "X" ? "#940a0a" : "orange"); // Set the color here
+        setWinnerColor(cells[condition[0]] === "X" ? "#940a0a" : "#F3B52E"); 
         setPlaying(false);
         setTextButton("PLAY");
         setTurn("X");
@@ -69,8 +68,11 @@ export const Grid = () => {
 
   const startTimer = () => {
     setPlaying(true)
-    setTextButton("IN PROGRESS")
+    setTextButton("IN PROGRESS");
     setCells(Array(9).fill(""));
+    setWinnerColor("");
+    setWinningCells([]);
+    setWiner("Tic Tac Toe!");
 
   }
 
@@ -94,7 +96,8 @@ export const Grid = () => {
           {cells.map((cell, i) => (
             <span
               key={i}
-              className={`Icon ${cell ? "filled" : ""} ${turn === "X" ? "hover-X" : "hover-O"} ${winningCells.includes(i) ? "winner-cell" : ""}`}
+              className={`Icon ${cell ? "filled" : ""} ${turn === "X" ? "hover-X" : "hover-O"} ${winningCells.includes(i) ? cells[winningCells[0]] === "X" ? "winner-cell-x" : "winner-cell-o" : ""}`} 
+
               data-cell={cell}
               onClick={() => handleClick(i)}
 

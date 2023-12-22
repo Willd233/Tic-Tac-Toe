@@ -73,19 +73,21 @@ section {
   }
 
   .icon-red {
-    color: $red-1;
+    color: $red-2;
   }
 }
 
 .hover-X:hover {
   border-color: $red-2;
 }
-.winner-cell {
-  background-color: #940a0a; /* Color para el ganador X */
+.winner-cell-x {
+  background-color: $red-1; /* Color para el ganador X */
 }
 
 
-
+.winner-cell-o {
+  background-color: $yellow-1; /* Color para el ganador X */
+}
 
 .hover-O:hover {
   border-color: $yellow-2;
