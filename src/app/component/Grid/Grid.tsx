@@ -95,7 +95,7 @@ export const Grid = () => {
               onClick={() => handleClick(i)}
 
             >
-              {cell === "X" && <FontAwesomeIcon icon={faXmark} className="icon-red"  style={{ color: winnerColor }}/>}
+              {cell === "X" && <FontAwesomeIcon icon={faXmark} className="icon-red" />}
               {cell === "O" && <FontAwesomeIcon icon={faO} className="icon-orange" />}
             </span>
           ))}
