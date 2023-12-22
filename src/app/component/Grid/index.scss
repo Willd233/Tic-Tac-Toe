@@ -80,6 +80,12 @@ section {
 .hover-X:hover {
   border-color: $red-2;
 }
+.winner-cell {
+  background-color: #940a0a; /* Color para el ganador X */
+}
+
+
+
 
 .hover-O:hover {
   border-color: $yellow-2;

@@ -11,6 +11,7 @@ export const Grid = () => {
   const [textButton, setTextButton] = useState("PLAY");
   const [winer, setWiner] = useState("Tic Tac Toe!");
   const [winnerColor, setWinnerColor] = useState("");
+  const [winningCells, setWinningCells] = useState<number[]>([]); // Add a state to track winning cells
 
 
 
@@ -21,7 +22,9 @@ export const Grid = () => {
     const newCells = [...cells];
     newCells[i] = turn;
     setTurn(turn === "X" ? "O" : "X")
-    setCells(newCells)
+    setCells(newCells);
+    setWinningCells([]); // Reset winning cells on every move
+
   };
 
   useEffect(() => {
@@ -47,6 +50,7 @@ export const Grid = () => {
         setPlaying(false);
         setTextButton("PLAY");
         setTurn("X");
+        setWinningCells(condition);
         break;
       }
     }
@@ -90,7 +94,7 @@ export const Grid = () => {
           {cells.map((cell, i) => (
             <span
               key={i}
-              className={`Icon ${cell ? "filled" : ""} ${turn === "X" ? "hover-X" : "hover-O"}`}
+              className={`Icon ${cell ? "filled" : ""} ${turn === "X" ? "hover-X" : "hover-O"} ${winningCells.includes(i) ? "winner-cell" : ""}`}
               data-cell={cell}
               onClick={() => handleClick(i)}
 
