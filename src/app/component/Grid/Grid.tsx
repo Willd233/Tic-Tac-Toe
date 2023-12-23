@@ -11,6 +11,8 @@ export const Grid = () => {
   const [textButton, setTextButton] = useState("PLAY");
   const [winer, setWiner] = useState("Tic Tac Toe!");
   const [winnerColor, setWinnerColor] = useState("");
+  const [winnerColorTimer, setWinnerColorTimer] = useState("");
+  const [winnerColorTimer2, setWinnerColorTimer2] = useState("");
   const [winningCells, setWinningCells] = useState<number[]>([]); 
 
 
@@ -45,7 +47,9 @@ export const Grid = () => {
         cells[condition[1]] === cells[condition[2]]
       ) {
         setWiner(`${cells[condition[0]]} Wins!`);
-        setWinnerColor(cells[condition[0]] === "X" ? "#940a0a" : "#F3B52E"); 
+        setWinnerColor(cells[condition[0]] === "X" ? "#940a0a" : "#F3B52E");
+        setWinnerColorTimer(cells[condition[0]] === "X" ? "#940a0a" : "");
+        setWinnerColorTimer2(cells[condition[0]] === "O" ? "#F3B52E" : "");
         setPlaying(false);
         setTextButton("PLAY");
         setTurn("X");
@@ -83,11 +87,11 @@ export const Grid = () => {
       </div>
       <div className="container">
         <div className={`X ${turn === "X" && playing ? "turn-active" : ""} `}>
-          <div className="title">
+          <div className="title"style={{ color: winnerColorTimer }}>
             <h1>X Turn</h1>
           </div>
-          <div className="timer-left O" >
-            <span className="title-internal">
+          <div className={`timer-left O `}  style={{ background: winnerColorTimer }}>
+            <span className="title-internal" >
               <Timer playing={playing} turn={turn} setTurn={setTurn} tag={"O"} />
             </span>
           </div>
@@ -108,11 +112,11 @@ export const Grid = () => {
           ))}
         </section>
         <div className={`O ${turn === "O" ? "turn-active" : ""}`}>
-          <div className="title">
+          <div className="title" style={{ color: winnerColorTimer2 }}>
             <h1>O Turn</h1>
           </div>
-          <div className="timer-left X">
-            <span className="title-internal">
+          <div className="timer-left X" style={{ background: winnerColorTimer2 }}>
+            <span className="title-internal" >
               <Timer playing={playing} turn={turn} setTurn={setTurn} tag={"X"} />
             </span>
           </div>
