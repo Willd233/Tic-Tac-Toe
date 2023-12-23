@@ -75,6 +75,7 @@ export const Grid = () => {
     setTextButton("IN PROGRESS");
     setCells(Array(9).fill(""));
     setWinnerColor("");
+    setWinnerColorTimer2("")
     setWinningCells([]);
     setWiner("Tic Tac Toe!");
 
