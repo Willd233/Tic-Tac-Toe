@@ -1,37 +1,5 @@
 @import '/src/style/varColor.scss';
 
-.Grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  align-items: center;
-}
-
-.title {
-  display: grid;
-  justify-items: center;
-
-  h1 {
-    font-size: 20px;
-  }
-}
-
-.winner {
-  border: 1px solid red;
-  border-radius: 5px;
-}
-
-
-section {
-  width: 600px;
-  height: 600px;
-  display: grid;
-  margin: 0 auto;
-  border-radius: 50px;
-  background: $bg-color-2;
-}
-
-
 
 .container {
   width: 100%;
@@ -42,6 +10,72 @@ section {
 
 }
 
+.title {
+  display: grid;
+  justify-items: center;
+  color: $dark-blue ;
+
+h1{
+  font-size: 4rem;
+}
+}
+
+
+.timer {
+  width: 90%;
+  height: 250px;
+  background-color: $bg-color-2;
+  font-size: 130px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  
+}
+
+.turn-active {
+  color:$red-1;
+
+  .title-internal{
+    color: white;
+  }
+  .afterO{
+    background-color: #940a0a;
+  }
+}
+
+.O.turn-active {
+  color: #ffa500; 
+  .afterX{
+    background-color: $yellow-2;
+  }
+}
+
+.X{
+  width: 90%;
+  display: grid;
+  justify-content: space-evenly;
+    justify-items: center;
+}
+section {
+  width: 600px;
+  height: 600px;
+  display: grid;
+  margin: 0 auto;
+  border-radius: 50px;
+  background: $bg-color-2;
+}
+
+// grid 3x3
+.Grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+
+
+// icon and hover
 .Icon {
   cursor: pointer;
   display: flex;
@@ -54,8 +88,6 @@ section {
   width: 180px;
   font-size: 88px;
   font-weight: bold;
-
-  
 
   &:hover {
 
@@ -77,64 +109,28 @@ section {
   }
 }
 
-.hover-X:hover {
-  border-color: $red-2;
-}
-.winner-cell-x {
-  background-color: $red-1; /* Color para el ganador X */
-}
 
-
-.winner-cell-o {
-  background-color: $yellow-1; /* Color para el ganador X */
-}
+// hover
 
 .hover-O:hover {
   border-color: $yellow-2;
 }
 
-.title {
-  display: grid;
-  justify-items: center;
-  color: $dark-blue ;
-
-  h1 {
-    font-size: 70px;
-  }
+.hover-X:hover {
+  border-color: $red-2;
 }
 
-.timer-left {
-  width: 180px;
-  height: 250px;
-  background-color: $bg-color-2;
-  font-size: 130px;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  border-radius: 30px;
-  
+
+// winning
+.winner-cell-x {
+  background-color: $red-1; 
+}
+.winner-cell-o {
+  background-color: $yellow-1; 
 }
 
-.turn-active {
-  color:$red-1;
 
-  .title-internal{
-    color: white;
-  }
-  .O{
-    background-color: #940a0a;
-  }
-}
 
-.O.turn-active {
-  color: #ffa500; 
-  .X{
-    background-color: $yellow-2;
-  }
-}
-#O{
-  color: white;
-}
 
 
 

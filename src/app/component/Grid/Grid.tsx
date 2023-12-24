@@ -83,7 +83,7 @@ export const Grid = () => {
   }
 
   return (
-    <main>
+    <div>
       <div className='primary-title'>
       <h1 style={{ color: winnerColor }}>{winer}</h1>
       </div>
@@ -92,7 +92,7 @@ export const Grid = () => {
           <div className="title"style={{ color: winnerColorTimer }}>
             <h1>X Turn</h1>
           </div>
-          <div className={`timer-left O `}  style={{ background: winnerColorTimer }}>
+          <div className={`timer afterO `}  style={{ background: winnerColorTimer, }}>
             <span className="title-internal" >
               <Timer playing={playing} turn={turn} setTurn={setTurn} tag={"O"} />
             </span>
@@ -106,18 +106,17 @@ export const Grid = () => {
 
               data-cell={cell}
               onClick={() => handleClick(i)}
-
             >
               {cell === "X" && <FontAwesomeIcon icon={faXmark} className="icon-red" />}
               {cell === "O" && <FontAwesomeIcon icon={faO} className="icon-orange" />}
             </span>
           ))}
         </section>
-        <div className={`O ${turn === "O" ? "turn-active" : ""}`}>
+        <div className={`X ${turn === "O" ? "turn-active" : ""}`}>
           <div className="title" style={{ color: winnerColorTimer2 }}>
             <h1>O Turn</h1>
           </div>
-          <div className="timer-left X" style={{ background: winnerColorTimer2 }}>
+          <div className="timer afterX" style={{ background: winnerColorTimer2 }}>
             <span className="title-internal" >
               <Timer playing={playing} turn={turn} setTurn={setTurn} tag={"X"} />
             </span>
@@ -131,6 +130,6 @@ export const Grid = () => {
           {textButton}
         </button>
       </div>
-    </main>
+    </div>
   );
 }
