@@ -95,6 +95,7 @@ section {
   border-radius: 50px;
   background: $bg-color-2;
     @media (max-width: 1000px) { 
+      width: 98%;
       grid-column: 1/4;
       grid-row: 1/2;
   }
