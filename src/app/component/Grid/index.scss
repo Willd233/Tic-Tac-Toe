@@ -7,7 +7,7 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-items: center;
-  @media (max-width: 500px) { 
+  @media (max-width: 400px) { 
     width: 150%;
 }
 
@@ -98,7 +98,7 @@ section {
       grid-column: 1/4;
       grid-row: 1/2;
   }
-  @media (max-width: 500px) { 
+  @media (max-width: 400px) { 
     width: 98%;
 }
 }
