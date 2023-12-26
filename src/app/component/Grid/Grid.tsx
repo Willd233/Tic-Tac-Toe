@@ -55,14 +55,13 @@ export const Grid = () => {
     }
 
     if (cells.every((cell) => cell)) {
-      setWiner("It's a Tie!");
+      setWiner("It's a tie!");
+      setWinnerColor("");
       setPlaying(false);
-      setCells(Array(9).fill(""));
+      setTextButton("PLAY");
       setTurn("X");
       setWinningCells([]);
-      setTextButton("PLAY");
     }
-
     
   }, [cells]);
 
