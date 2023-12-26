@@ -1,5 +1,8 @@
 @import '/src/style/varColor.scss';
 
+html{
+  width: 100%;
+}
 
 .container {
   width: 100%;
@@ -40,6 +43,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 30px;
+  color: $dark-blue ;
+
 
   @media (max-width: 1000px) {
     width: 65%;
@@ -48,6 +53,8 @@
 
   }
 }
+
+
 
 .turn-active {
   color: $red-1;
@@ -59,6 +66,26 @@
   .afterO {
     background-color: #940a0a;
   }
+
+}
+// turn-winnerX
+.turn-wineerX{
+  background-color: $red-1;
+  color: white;
+}
+
+.turn-title-wineerX{
+  color:$red-1;
+}
+
+// turn-winnerO
+.turn-wineerO{
+  background-color: $yellow-1;
+  color: white;
+}
+
+.turn-title-wineerO{
+  color:$yellow-1;
 }
 
 .O.turn-active {
@@ -88,8 +115,8 @@
   @extend .X;
 
   @media (max-width: 1000px) {
-    grid-column: 3/4;
-    grid-row: 2/4;
+    grid-column: 3/3;
+    grid-row: 2/3;
   }
 
 }

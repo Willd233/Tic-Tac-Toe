@@ -11,8 +11,6 @@ export const Grid = () => {
   const [textButton, setTextButton] = useState("PLAY");
   const [winer, setWiner] = useState("Tic Tac Toe!");
   const [winnerColor, setWinnerColor] = useState("");
-  const [winnerColorTimer, setWinnerColorTimer] = useState("");
-  const [winnerColorTimer2, setWinnerColorTimer2] = useState("");
   const [winningCells, setWinningCells] = useState<number[]>([]); 
 
 
@@ -48,8 +46,6 @@ export const Grid = () => {
       ) {
         setWiner(`${cells[condition[0]]} Wins!`);
         setWinnerColor(cells[condition[0]] === "X" ? "#940a0a" : "#F3B52E");
-        setWinnerColorTimer(cells[condition[0]] === "X" ? "#940a0a" : "");
-        setWinnerColorTimer2(cells[condition[0]] === "O" ? "#F3B52E" : "");
         setPlaying(false);
         setTextButton("PLAY");
         setTurn("X");
@@ -63,6 +59,7 @@ export const Grid = () => {
       setPlaying(false);
       setCells(Array(9).fill(""));
       setTurn("X");
+      setWinningCells([]);
       setTextButton("PLAY");
     }
 
@@ -75,8 +72,6 @@ export const Grid = () => {
     setTextButton("IN PROGRESS");
     setCells(Array(9).fill(""));
     setWinnerColor("");
-    setWinnerColorTimer2("");
-    setWinnerColorTimer("");
     setWinningCells([]);
     setWiner("Tic Tac Toe!");
 
@@ -89,10 +84,10 @@ export const Grid = () => {
       </div>
       <div className="container">
         <div className={`X ${turn === "X" && playing ? "turn-active" : ""} `}>
-          <div className="title"style={{ color: winnerColorTimer }}>
+          <div className={`title ${cells[winningCells[0]] === "X"  ? "turn-title-wineerX" : ""}`}>
             <h1>X Turn</h1>
           </div>
-          <div className={`timer afterO `}  style={{ background: winnerColorTimer, }}>
+          <div className={`timer afterO ${cells[winningCells[0]] === "X"  ? "turn-wineerX" : ""}`} >
             <span className="title-internal" >
               <Timer playing={playing} turn={turn} setTurn={setTurn} tag={"O"} />
             </span>
@@ -113,10 +108,10 @@ export const Grid = () => {
           ))}
         </section>
         <div className={`O ${turn === "O" ? "turn-active" : ""}`}>
-          <div className="title" style={{ color: winnerColorTimer2 }}>
+          <div className={`title ${cells[winningCells[0]] === "O"  ? "turn-title-wineerO" : ""}`}>
             <h1>O Turn</h1>
           </div>
-          <div className="timer afterX" style={{ background: winnerColorTimer2 }}>
+          <div className={`timer afterX ${cells[winningCells[0]] === "O"  ? "turn-wineerO" : ""}`}>
             <span className="title-internal" >
               <Timer playing={playing} turn={turn} setTurn={setTurn} tag={"X"} />
             </span>
