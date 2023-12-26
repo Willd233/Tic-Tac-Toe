@@ -112,7 +112,7 @@ export const Grid = () => {
             </span>
           ))}
         </section>
-        <div className={`X ${turn === "O" ? "turn-active" : ""}`}>
+        <div className={`O ${turn === "O" ? "turn-active" : ""}`}>
           <div className="title" style={{ color: winnerColorTimer2 }}>
             <h1>O Turn</h1>
           </div>
