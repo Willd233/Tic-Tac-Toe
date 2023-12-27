@@ -37,6 +37,7 @@ export const Grid = () => {
       [0, 4, 8],
       [2, 4, 6],
     ];
+    let winnerFound = false;
 
     for (const condition of winningConditions) {
       if (
@@ -50,11 +51,13 @@ export const Grid = () => {
         setTextButton("PLAY");
         setTurn("X");
         setWinningCells(condition);
+        winnerFound = true;
+
         break;
       }
     }
 
-    if (cells.every((cell) => cell)) {
+    if (!winnerFound && cells.every((cell) => cell)) {
       setWiner("It's a tie!");
       setWinnerColor("");
       setPlaying(false);
@@ -63,7 +66,7 @@ export const Grid = () => {
       setWinningCells([]);
     }
     
-  }, [cells]);
+  }, [cells, winer]);
 
 
   const startTimer = () => {
